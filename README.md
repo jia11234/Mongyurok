@@ -4,70 +4,87 @@
 
 ---
 
-## 📌 SK네트웍스 Family AI 캠프 24기 4차 프로젝트
-
+## 📑 목차
+1. [주요 역할](#-주요-역할)
+2. [기술 스택](#기술-스택)
+3. [개요](#-개요)
+4. [시스템 구성도](#-시스템-구성도)
+5. [ERD](#-erd)
+6. [산출물](#-산출물)
+7. [주요 기능](#-주요-기능)
 ---
 
-## 👥 1. 팀 소개
-
-### 🏷️ Team. Historycometrue
-
-| 김현수 | 황인규 | 나혜린 | 류지우 | 정준하 |
-|---|---|---|---|---|
-| <img src="https://github.com/user-attachments/assets/0df27cbd-71e2-457d-9905-56ee1afb3ddd" width="150" height="200" style="object-fit:cover;"> | <img src="https://github.com/user-attachments/assets/2aa07da0-b6ec-4492-b504-9fb629b25567" width="150" height="200" style="object-fit:cover;"> | <img src="https://github.com/user-attachments/assets/7600d13c-15f1-4328-88a9-4931f8731f18" width="150" height="200" style="object-fit:cover;"> | <img src="https://github.com/user-attachments/assets/1cfb7026-286a-4b34-981b-84aedad5f562" width="150" height="200" style="object-fit:cover;"> | <img src="https://github.com/user-attachments/assets/5994f887-d81f-46dd-a9ce-bc464cc0813f" width="150" height="200" style="object-fit:cover;"> |
-| [BarryKim34](https://github.com/BarryKim34) | [hwang-in-kyu](https://github.com/hwang-in-kyu) | [nngpfls](https://github.com/nngpfls) | [jia11234](https://github.com/jia11234) | [junhaj27-jpg](https://github.com/junhaj27-jpg) |
-
-## 📖 2. 프로젝트 개요
-
-### 📛 프로젝트 명
-**몽유록**
-
+## 👥 주요 역할
+### 🐸 류지우(외 4명)
+- 프론트엔드 및 백엔드
+- UI/UX 설계
+- 조선왕조실록 데이터 전처리 및 ChromaDB 적재
 ---
 
-### 📌 프로젝트 소개
+<a id="기술-스택"></a>
+## 🛠️ 기술 스택
 
-한국사 연대기 데이터를 기반으로 사용자가 조선의 왕과 직접 대화하는  
-
-👉 **몰입형 캐릭터 AI 챗봇 웹 서비스**
-
+| 구분 | 기술 |
+|---|---|
+| 💻 Backend | Django |
+|  | FastAPI |
+| 🤖 AI / LLM | EXAONE-3.5-2.4B-Instruct(독대 모드) |
+|  | OpenAI API (GPT, 역할극 모드) |
+|  | LangChain |
+|  | LangGraph |
+| 📚 Retrieval | ChromaDB |
+|  | HuggingFace Embedding (KURE-v1) |
+| 🗄️ Database | MySQL (RDS) |
+| ☁️ Infra | AWS EC2 |
+|  | RunPod |
+|  | Nginx |
+|  | Gunicorn |
+| 🐳 DevOps | Docker |
 ---
+## 🔍 개요
 
 ### 📚 프로젝트 배경  
   
-<p align="center">
-<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/03bb7129-01b8-41bc-8ce6-3f04fa8ede8f" />
+<p align="left">
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/03bb7129-01b8-41bc-8ce6-3f04fa8ede8f" /><br>
   https://www.mk.co.kr/news/it/11983531  
-</p>  
-  
-최근 AI 챗봇 시장에서는 캐릭터 기반 서비스가 높은 이용률을 보이고 있다. 특히 캐릭터와의 대화를 중심으로 한 서비스가 높은 사용 시간을 기록하고 있다는 점은, 챗봇이 단순한 정보 검색 도구를 넘어 감정적 교감과 몰입형 경험을 제공하는 서비스로 확장되고 있음을 보여준다. 
-  
-<p align="center">
-  <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/970130ec-a0fd-4372-b653-98e54ddf2eb1" />
+</p>
+<p align="left">
+최근 AI 챗봇 시장에서는 캐릭터와 대화하는 서비스가 높은 이용률과 사용 시간을 기록하고 있다.<br>
+이는 챗봇이 정보 검색 도구를 넘어 감정적 교감과 몰입형 경험을 주는 서비스로 확장되고 있음을 보여준다.
+</p> 
+<p align="left">
+  <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/970130ec-a0fd-4372-b653-98e54ddf2eb1" /><br>
   https://n.news.naver.com/article/006/0000135557?sid=103 
 </p>   
+<p align="left">
+또한 역사 드라마와 콘텐츠의 흥행으로 조선 시대와 역사 인물에 대한 관심이 검색과 탐색으로 이어지고 있다.<br>
+이는 역사적 배경과 인물을 더 깊이 알고자 하는 사용자 니즈가 있음을 보여준다.
+</p>   
   
-또한 역사 드라마와 콘텐츠의 흥행은 특정 시대와 인물에 대한 대중의 관심을 높이는 요인으로 작용하고 있다. 조선시대와 역사 인물을 다룬 콘텐츠에 대한 관심은 관련 검색과 탐색으로 이어지고 있으며, 이는 사용자가 역사적 배경과 인물에 대해 더 깊이 알고자 하는 니즈가 존재함을 보여준다.
-  
-<p align="center">
+<p align="left">
   <img src="https://github.com/user-attachments/assets/c998bd6d-a7e7-4708-bc78-5be3b9754642" width="500"/>
   <img src="https://github.com/user-attachments/assets/8e1d0e51-27fd-429f-a5f8-642623c98f69" width="500"/>
 </p>  
-실제로 제타, 크랙 등의 캐릭터 기반 챗봇 플랫폼에서는 조선, 왕, 동양풍 등을 소재로 한 캐릭터가 다수 등장하고 있으며, 사용자들 또한 해당 주제를 기반으로 한 대화형 콘텐츠를 적극적으로 소비하고 있다.  
-
+<p align="left">
+실제로 제타, 크랙 등의 캐릭터 기반 챗봇 플랫폼에서는 조선, 왕, 동양풍 등을 소재로 한 캐릭터가 다수 등장하고 있으며<br>
+사용자들 또한 해당 주제를 기반으로 한 대화형 콘텐츠를 적극적으로 소비하고 있다.  
+</p>   
   
-<p align="center">
+<p align="left">
   <img src="https://github.com/user-attachments/assets/75ffdb25-ab5f-4beb-bfba-248d19f8d47f" width="500"/>
   <img src="https://github.com/user-attachments/assets/b6d1f37a-7614-4cee-a148-2760f35b0d53" width="500"/>
   https://contents.history.go.kr/front/hm/view.do?levelId=hm_074_0050 
 </p>  
-  
-그러나 기존 역사 캐릭터 챗봇은 인물의 말투나 분위기를 자연스럽게 구현하는 데에는 강점이 있지만, 역사적 사실을 정확히 반영하는 데에는 한계가 있다. 예시 대화에서도 캐릭터는 자연스럽게 답변하지만, 실제 사료와 비교했을 때 역사적 오류가 포함될 수 있음을 확인할 수 있다.  
-오른쪽 자료는 질문한 내용에 대해 국사편찬위원회에서 제공하고 있는 역사 원문 및 해설로, 객관적인 사료를 기반으로 해당 정보가 실제 역사적 사실과 다름을 보여주는 근거 자료이다.  
-이는 현재의 캐릭터 챗봇이 몰입감 있는 대화 경험은 제공할 수 있으나, 정보의 정확성과 신뢰성 측면에서는 검증되지 않은 내용을 생성할 가능성이 있다는 문제를 드러낸다.  
-  
-#### **따라서 본 프로젝트는 이러한 시장 흐름과 사용자 니즈를 반영하여, 조선시대 인물을 기반으로 하되 단순한 캐릭터 재현을 넘어 역사적 사실과 인물의 성격을 함께 반영한 몰입형 역사 캐릭터 챗봇 서비스를 구현하고자 한다.**  
-  
----
+<p align="left">
+그러나 기존 역사 캐릭터 챗봇은 인물의 말투나 분위기를 자연스럽게 구현하는 데 강점이 있지만 역사적 사실에 대한 답변에 어려움이 있다.<br>
+예시 대화에서도 캐릭터는 자연스럽게 답하지만 실제 사료와 비교했을 떄 역사적 오류가 포함될 수 있음을 확인할 수 있다.<br><br>
+오른쪽 자료는 질문한 내용에 대해 국사편찬위원회에서 제공하고 있는 역사 원문 및 해설로 객관적 사료를 기반으로 해당 정보가 실제 역사적 사실과 다름을 보여준다.
+이는 현재 캐릭터 챗봇이 몰입감 있는 대화 경험은 제공할 수 있으나 정보의 정확성과 신뢰성 측면에서는 검증 되지 않은 내용을 생성할 가능성이 있다는 문제를 보여준다.
+</p>  
+<p align="left">
+따라서 본 프로젝트는 이러한 시장 흐름과 사용자 니즈를 반영하여, 조선시대 인물을 기반으로 하되 단순한 캐릭터 재현을 넘어 역사적 사실과 인물의 성격을 함께 반영한 몰입형 역사 캐릭터 챗봇 서비스를 구현하고자 한다.
+</p>  
 
 ### 🎯 프로젝트 목표  
 - 조선시대 인물의 성격과 말투를 반영한 자연스러운 대화 구현  
@@ -76,150 +93,58 @@
   
 ---
 
-## 🛠️ 3. 기술 스택
+## 🧩 시스템 구성도
 
-| 구분 | 기술 |
-|---|---|
-| 💻 Backend | Django |
-|  | FastAPI |
-| 🧠 AI / LLM | EXAONE-3.5-2.4B-Instruct |
-|  | LangChain |
-|  | LangGraph |
-| 📚 Retrieval | ChromaDB |
-|  | HuggingFace Embedding (KURE-v1) |
-| 🗄️ Database | MySQL (RDS) |
-| ☁️ Infra | AWS EC2 |
-|  | AWS RDS |
-|  | RunPod |
-| 🐳 DevOps | Docker |
-|  | Nginx |
-|  | Gunicorn |
+<img width="1260" height="530" alt="Frame" src="https://github.com/user-attachments/assets/c7ac6d71-e1a3-4804-a7a5-fdbdc1a94ec0" />
 
-## 🧩 4. 시스템 구성도
-
-<img width="1604" height="981" alt="image" src="https://github.com/user-attachments/assets/7f058530-a561-4463-8467-a78b9a76dea7" />
-  
-### 🔁 처리 흐름
-
-1. 사용자 요청  
-사용자가 웹에서 메시지를 입력하면 HTTP/HTTPS 요청이 발생한다.
-
-2. AWS EC2 (Docker 환경 진입)  
-요청은 AWS EC2 내부 Docker 컨테이너로 전달된다.  
-→ Nginx → Gunicorn → Django 순으로 처리된다.
-
-3. Nginx (Reverse Proxy)  
-클라이언트 요청을 수신하고 Django 서버로 라우팅한다.
-
-4. Gunicorn (WSGI 서버)  
-Django 애플리케이션을 실행하며 요청을 처리한다.
-
-5. Django (Backend)  
-- 사용자 인증 및 요청 처리  
-- 대화방 및 모드 관리 (독대 / 스토리)  
-- 메시지 전처리  
-- FastAPI (/chat) 호출  
-
-6. 모드 분기  
-Django에서 요청을 분석하여 모드를 결정한다.
-
-- 독대 모드 → EXAONE LLM 사용  
-- 스토리 모드 → OpenAI GPT 사용  
-
-7. LLM 응답 생성  
-각 모드에 따라 LLM이 응답을 생성한다.  
-- 독대 모드: 단일 캐릭터 기반 응답  
-- 스토리 모드: 다중 캐릭터 및 스토리 진행 응답  
-
-8. RAG 검색 (필요 시)  
-LLM은 ChromaDB(Vector DB)와 연결되어  
-유사도 기반 문서 검색을 수행하고 응답에 반영한다.
-
-
-9. 데이터 저장  
-Django는 생성된 응답과 사용자 메시지를  
-Amazon RDS(MySQL)에 저장한다.  
-
-10. 응답 반환  
-생성된 결과는 Django → Gunicorn → Nginx → 사용자 순으로 전달된다.
-
-11. 사용자 출력  
-최종적으로 웹/모바일 화면에 응답이 출력된다.
-  
 ---
-## 📋 5. ERD
+## 📋 ERD
 
 <img width="1132" height="777" alt="image" src="https://github.com/user-attachments/assets/b148e32f-5bfd-4de1-9df9-e61f22a6505f" />
 
 ---
 
-## 📋 6. 요구사항 정의서
-
-<img width="1753" height="1240" alt="image" src="https://github.com/user-attachments/assets/63c240f8-f2aa-46f7-9e0a-f3d37a0f944f" />  
+## 📃 산출물
   
 - [요구사항 정의서](docs/req_1.pdf)  
   
----
-
-## 🖥️ 7. 화면설계서  
-  
 - [화면설계서](docs/scr_design.pdf)  
 
-  
 ---
 
-## 📊 8. WBS
+## 📌 주요 기능
 
-<img width="1303" height="601" alt="wbs" src="https://github.com/user-attachments/assets/30d29838-ae8b-4cc1-8177-67c2c6e424f2" />
-
-
----
-
-## 🧪 9. 테스트 계획 및 결과  
-  
-- [테스트계획및결과](docs/test_report.pdf)  
-
----
-
-## 🎬 10. 수행 결과
-
-### 📌 주요 기능
-
----
-
-### 🏠 메인 화면 (독대 모드)
+### 메인 화면 (독대 모드)
 <p align="center">
   <img src="https://github.com/user-attachments/assets/fa359559-7b02-4840-986e-1343e0d1831b" width="700"/>
   <br/>
-  <img src="https://github.com/user-attachments/assets/1e8282c6-4bea-4fb3-bcee-31a40df90e9c" width="700"/>
 </p>
 
 ---
 
-### 👑 독대 모드 캐릭터 상세보기
+### 독대 모드 캐릭터 상세보기
 <p align="center">
   <img src="https://github.com/user-attachments/assets/59269281-4401-4a42-bd4f-b5f2cf3ef429" width="700"/>
 </p>
 
 ---
 
-### 🎭 역할극 모드 화면
+### 역할극 모드 화면
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4aa12659-ce83-4748-8539-e06ae4f4a8c2" width="700"/>
   <br/>
-  <img src="https://github.com/user-attachments/assets/0c9710a0-237e-4ea9-9ff3-644c66e4400f" width="700"/>
 </p>
 
 ---
 
-### 📖 역할극 모드 상세보기
+### 역할극 모드 상세보기
 <p align="center">
   <img src="https://github.com/user-attachments/assets/8a2c53e0-0f35-4c2a-847a-542ee2668081" width="700"/>
 </p>
 
 ---
 
-### 🔐 로그인
+### 로그인
 <p align="center">
   <img src="https://github.com/user-attachments/assets/02154ace-54f1-4554-9950-327a206c002c" width="700"/>
 </p>
@@ -228,7 +153,7 @@ Amazon RDS(MySQL)에 저장한다.
 
 ## 🧾 회원가입
 
-### ✔️ 약관 동의
+### 약관 동의
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d962bfe7-fbb7-4b9b-b170-2a95b9bfe42f" width="700"/>
   <br/>
@@ -237,42 +162,42 @@ Amazon RDS(MySQL)에 저장한다.
 
 ---
 
-### 📜 이용 약관
+### 이용 약관
 <p align="center">
   <img src="https://github.com/user-attachments/assets/0442d305-888e-4649-8655-8a5d8b5ba180" width="700"/>
 </p>
 
 ---
 
-### 🔒 개인정보 수집 및 이용 동의
+### 개인정보 수집 및 이용 동의
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2b6232f9-73c4-489c-9945-c062ab8b1087" width="700"/>
 </p>
 
 ---
 
-### 📝 회원가입
+### 회원가입
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d350567a-9753-46a3-b0aa-7ba098fea65c" width="700"/>
 </p>
 
 ---
 
-### 🧠 독대 모드 페르소나 설정
+### 독대 모드 페르소나 설정
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3fb1fd88-3a6e-439e-b52d-d461947d11a5" width="400"/>
 </p>
 
 ---
 
-### 🧠 역할극 모드 페르소나 설정
+### 역할극 모드 페르소나 설정
 <p align="center">
   <img src="https://github.com/user-attachments/assets/1a7411d1-5aee-4840-ae59-8a256ff92292" width="400"/>
 </p>
 
 ---
 
-### 💬 독대 모드 실시간 채팅
+### 독대 모드 실시간 채팅
 <p align="center">
   <img src="https://github.com/user-attachments/assets/70d6c6d4-c77c-4752-8300-e5b101d9f1c8" width="400"/>
   <br>
@@ -281,7 +206,7 @@ Amazon RDS(MySQL)에 저장한다.
 
 ---
 
-### 💬 역할극 모드 실시간 채팅
+### 역할극 모드 실시간 채팅
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c7366357-4ca7-4743-a806-98e87634c63e" width="400"/>
   <br>
@@ -289,22 +214,3 @@ Amazon RDS(MySQL)에 저장한다.
   <br>
   <img src="https://github.com/user-attachments/assets/fd56054e-704a-4ab8-98ac-faecd817a640" width="400"/>
 </p>
-
----
-  
-## 💬 11. 개선할 사항
-- 인증 횟수 초과시 제한 기능
-- 키워드를 통한 카드 검색 기능
-- 비윤리적인 발언에 대한 제재 기능
-- 답변 길이 선택(짧게, 보통, 길게, 매우 길게) 기능
-- 페르소나 설정 글자수 제한 기능
-- 이미지 조회 페이지
-  
----
-
-## 💬 12. 한 줄 회고
-- 나혜린 : 이번 프로젝트를 진행하면서 기획, 화면 설계, 기능 구현까지 서비스가 만들어지는 전체 흐름을 경험할 수 있었다. 특히 Django 기반으로 마이페이지, 이미지 페이지 등 실제 사용자 기능을 구현하면서 웹 서비스 구조를 더 구체적으로 이해하게 되었다. 중간에 오류나 화면 간격 조정처럼 어려운 부분도 있었지만, 하나씩 해결하면서 문제를 분석하고 수정하는 능력을 키울 수 있었다. 이번 경험을 바탕으로 다음 프로젝트에서는 기능 완성도뿐 아니라 사용자 경험까지 더 신경 써보고 싶다.  
-- 류지우 : 이번 프로젝트를 통해 Django와 FastAPI를 활용하여 LLM 서비스 구현 전반을 경험할 수 있었고, 그 과정에서 서비스의 전체적인 흐름을 이해할 수 있었습니다. 다만, 개발 속도를 충분히 끌어올려 완성도를 더 높이지 못한 점은 아쉬움으로 남습니다.  
-- 김현수 : 로컬 환경에서 개발한 것을 AWS EC2환경에 올릴 때 생각보다 구조적으로 바꾸어야 하는게 많아서 힘들었다. 완성되었다고 생각했는데, 막상 배포하고 보니 오류가 많아서 크게 당황했었다. AWS S3 버킷도 이용하면서 최대한 실무에 가까운 시스템을 구축해보려고 했지만 실패했던 것이 아쉬움이 남는다.  
-- 황인규 : Django 구조에서는 AI 서버와 메시지를 주고받는 요청/응답 형식을 정의하였고, RunPod에서는 모델을 배포하여 실제 추론이 가능하도록 구성하였다. 이 과정을 통해 Django와 RunPod 간의 연결 구조와 데이터 흐름을 명확히 이해할 수 있었다. 또한 ERD 설계를 진행하며 변수(필드) 명의 통일성이 시스템 전반의 일관성과 유지보수에 중요한 요소임을 다시 한번 인식하게 되었다.  
-- 정준하 : 이미지 페이지와 시나리오 로직에서의 작은 수정이 전체 서비스 장애로 이어지는 문제를 겪으며, 의존성 관리와 안정적인 구조 설계의 중요성을 체감했고 이번 개발은 오류 디버깅의 연속이었다. 화면을 구성하면서오류가많았다  
